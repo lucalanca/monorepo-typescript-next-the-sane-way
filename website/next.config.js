@@ -2,11 +2,17 @@ const withPlugins = require('next-compose-plugins');
 const withTypescript = require('@zeit/next-typescript');
 const withTM = require('next-plugin-transpile-modules');
 const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
+const withEnv = require('next-env');
+
+const dotenvLoad = require('dotenv-load');
+ 
+dotenvLoad();
 
 module.exports = withPlugins([
   [withTypescript],
   [withTM],
-  [withBundleAnalyzer]
+  [withBundleAnalyzer],
+  [withEnv()]
 ], {
   transpileModules: ['shared'],
   webpack(config, options) {
