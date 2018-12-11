@@ -12,6 +12,11 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const nextHandler = app.getRequestHandler();
 
+console.log('Checking auto .env injection:');
+console.log('\tprocess.env.NEXT_SERVER_TEST_1: ', process.env.NEXT_SERVER_TEST_1);
+console.log('\tprocess.env.NEXT_STATIC_TEST_1: ', process.env.NEXT_STATIC_TEST_1);
+console.log('\tprocess.env.NEXT_PUBLIC_TEST_1: ', process.env.NEXT_PUBLIC_TEST_1);
+
 app
   .prepare()
   .then(() => {
